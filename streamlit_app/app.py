@@ -23,7 +23,11 @@ model = load_model()
 # Загрузка данных для EDA 
 @st.cache_data
 def load_data():
-    return pd.read_csv('https://raw.githubusercontent.com/Murcha1990/MLDS_ML_2022/main/Hometasks/HT1/cars_train.csv')
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.join(script_dir, "df_train.csv")
+    
+    with open(model_path, "rb") as f:
+        return pd.read_csv(f)
 
 df = load_data()
 
