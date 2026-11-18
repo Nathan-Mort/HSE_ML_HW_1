@@ -4,6 +4,7 @@ import numpy as np
 import pickle
 import seaborn as sns
 import matplotlib.pyplot as plt
+import os
 
 st.set_page_config(page_title="Car Price Prediction", layout="wide")
 st.title("Прогнозирование стоимости автомобиля")
