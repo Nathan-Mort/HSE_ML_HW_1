@@ -11,7 +11,10 @@ st.title("Прогнозирование стоимости автомобиля
 # Загрузка модели 
 @st.cache_resource
 def load_model():
-    with open("model.pickle", "rb") as f:
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.join(script_dir, "model.pickle")
+
+    with open(model_path, "rb") as f:
         return pickle.load(f)
 
 model = load_model()
