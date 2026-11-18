@@ -50,8 +50,9 @@ if mode == "EDA (графики)":
     with col2:
         st.subheader("Корреляционная матрица")
         num_cols = ["selling_price", "year", "km_driven", "mileage", "engine", "max_power", "seats"]
+        df_num = df[num_cols].apply(pd.to_numeric, errors='coerce')
         fig, ax = plt.subplots(figsize=(8, 6))
-        sns.heatmap(df[num_cols].corr(), annot=True, fmt=".2f", cmap="coolwarm", center=0, ax=ax)
+        sns.heatmap(df_num[num_cols].corr(), annot=True, fmt=".2f", cmap="coolwarm", center=0, ax=ax)
         st.pyplot(fig)
         st.caption("max_power (0.69) и year (0.43) - сильнейшие связи с ценой.")
 
